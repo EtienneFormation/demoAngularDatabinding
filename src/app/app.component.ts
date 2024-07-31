@@ -1,13 +1,32 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {FormsModule} from "@angular/forms";
+import {NgClass, NgIf} from "@angular/common";
+import {UnPtitNomComponent} from "./un-ptit-nom/un-ptit-nom.component";
+import {ContactListComponent} from "./contact-list/contact-list.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule, NgClass, UnPtitNomComponent, ContactListComponent, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'demoangular';
+  content = "";
+  feutricolor = "Vert";
+
+  constructor() {
+    setTimeout(
+      () => {
+        this.title = 'coucou monde !';
+      }
+      , 10000
+    );
+  }
+
+  changerTitre() {
+    this.title = "It's time";
+  }
 }
