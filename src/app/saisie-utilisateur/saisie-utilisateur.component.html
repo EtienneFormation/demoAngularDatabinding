@@ -1,2 +1,15 @@
 <input type="text" [(ngModel)]="nouvel_utilisateur" />
 <button (click)="enregistrer()">Enregistrer</button>
+<br>
+<a routerLink="/lister-utilisateur">Basculer vers la liste</a>
+
+
+<!-- Exemple de route avec param -->
+<br>
+<!-- Déconseillé car possible effet de bord en fonction de la valeur de nouvel_utilisateur -->
+<a routerLink="/afficher-nom/{{nouvel_utilisateur}}">Consulter le nom</a>
+<br>
+<!-- Version conseillée -->
+<a [routerLink]="['/afficher-nom', nouvel_utilisateur]">Consulter le nom aussi</a>
+<br>
+<button (click)="naviguer()">Consulter le nom mais avec le controleur</button>
